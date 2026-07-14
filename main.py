@@ -1,5 +1,6 @@
 from typing import Optional
 from fastapi import FastAPI, Depends, HTTPException, Query
+from fastapi.middleware.cors import CORSMiddleware
 from sqlmodel import Session, select
 
 from database import init_db, get_session
@@ -7,6 +8,14 @@ from models import Product, Order, OrderItem, OrderStatus
 from schemas import ProductCreate, ProductUpdate, ProductRead, OrderCreate, OrderRead, OrderStatusUpdate
 
 app = FastAPI(title="Mini E-Commerce API")
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 @app.on_event("startup")
