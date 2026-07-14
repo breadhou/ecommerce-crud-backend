@@ -1,0 +1,15 @@
+# SQLite database
+*.db
+
+# Python
+__pycache__/
+*.pyc
+
+# Virtual env
+venv/
+.venv/
+
+# Superpowers brainstorming
+.superpowers/
+
+# Keep frontend's own gitignore (handles node_modules, dist, etc.)
